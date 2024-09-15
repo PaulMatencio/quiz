@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/questions.dart';
 import '../hints/hintsScreen.dart';
-import '../response/ResponseScreen.dart';
+import '../response/responseScreen.dart';
 
 class ListItemHorizontal extends StatefulWidget {
   final List<Question>questions;
@@ -15,8 +15,6 @@ class ListItemHorizontal extends StatefulWidget {
 }
 
 class _ListItemHorizontalState extends State<ListItemHorizontal> {
-
-  bool _isSelected = false;
 
   String state = '';
   setIndex() {

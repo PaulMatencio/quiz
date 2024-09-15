@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:taskf9/main.dart';
 import 'package:taskf9/presentation/add/addQuestionScreen.dart';
 import 'package:taskf9/presentation/home/myHomeScreen.dart';
-import 'package:taskf9/presentation/list/ListQuestionsScreen.dart';
 import '../models/questions.dart';
+import 'list/listQuestionsScreen.dart';
 
 // it the first  widget of home:
 
@@ -66,60 +67,60 @@ class _RootBottomNavigationBarState extends State<RootBottomNavigationBar> {
         bottomNavigationBar: MyApp.isLargeDevice
             ? null
             : Container(
-                padding: const EdgeInsets.fromLTRB(8, 1, 8, 10),
-                decoration: getBoxDecoration(),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: BottomNavigationBar(
-                    items: items,
-                    currentIndex: currentIndex,
-                    onTap: navBarNavigate,
-                    elevation: 10,
-                    backgroundColor: Colors.amber,
-                    selectedItemColor: Colors.blue,
-                    selectedFontSize: 18,
-                    unselectedFontSize: 16,
-                    unselectedItemColor: Colors.black,
-                  ),
-                ),
-              ),
+          padding: const EdgeInsets.fromLTRB(8, 1, 8, 10),
+          decoration: getBoxDecoration(),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: BottomNavigationBar(
+              items: items,
+              currentIndex: currentIndex,
+              onTap: navBarNavigate,
+              elevation: 10,
+              backgroundColor: Colors.amber,
+              selectedItemColor: Colors.blue,
+              selectedFontSize: 18,
+              unselectedFontSize: 16,
+              unselectedItemColor: Colors.black,
+            ),
+          ),
+        ),
         body: MyApp.isLargeDevice
             ? Container(
-                decoration: getBoxDecoration(),
-                padding: const EdgeInsets.fromLTRB(8, 1, 8, 10),
-                //margin: const EdgeInsets.all(10),
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: NavigationRail(
-                      leading: const SizedBox(
-                        height: 100,
-                      ),
-                      indicatorColor: Colors.blue,
-                      elevation: 10,
-                      backgroundColor: Colors.amber,
-                      minWidth: 100,
+          decoration: getBoxDecoration(),
+          padding: const EdgeInsets.fromLTRB(8, 1, 8, 10),
+          //margin: const EdgeInsets.all(10),
+          child:
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: NavigationRail(
+                leading: const SizedBox(
+                  height: 100,
+                ),
+                indicatorColor: Colors.blue,
+                elevation: 10,
+                backgroundColor: Colors.amber,
+                minWidth: 100,
 
-                      // minExtendedWidth: 70,
-                      // extended: true,
-                      destinations: tabletItems,
-                      selectedIndex: currentIndex,
-                      onDestinationSelected: navBarNavigate,
-                      labelType: NavigationRailLabelType.selected,
-                    ),
-                  ),
-                  Expanded(
-                    child: IndexedStack(
-                        index: currentIndex,
-                        children: getIndexedStackChildren(
-                            questions: widget.questions)),
-                  ),
-                ]),
-              )
+                // minExtendedWidth: 70,
+                // extended: true,
+                destinations: tabletItems,
+                selectedIndex: currentIndex,
+                onDestinationSelected: navBarNavigate,
+                labelType: NavigationRailLabelType.selected,
+              ),
+            ),
+            Expanded(
+              child: IndexedStack(
+                  index: currentIndex,
+                  children: getIndexedStackChildren(
+                      questions: widget.questions)),
+            ),
+          ]),
+        )
 
             : getIndexedStack(   //   Mobile device
-                questions: widget.questions));
+            questions: widget.questions));
   }
 
   void navBarNavigate(int index) {

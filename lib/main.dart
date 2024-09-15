@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:taskf9/presentation/RootBottomNavigationBar.dart';
 import 'package:taskf9/presentation/add/addQuestionScreen.dart';
-import 'package:taskf9/presentation/list/ListQuestionsScreen.dart';
+import 'package:taskf9/presentation/list/listQuestionsScreen.dart';
+import 'package:taskf9/presentation/rootBottomNavigationBar.dart';
 import 'models/questions.dart';
 import 'myHomePage.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

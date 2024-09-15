@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:taskf9/models/questions.dart';
 
 import '../hints/hintsScreen.dart';
-import '../response/ResponseScreen.dart';
+import '../response/responseScreen.dart';
 
 class ListItem extends StatefulWidget {
   final Question question;
@@ -11,7 +12,8 @@ class ListItem extends StatefulWidget {
   const ListItem({super.key, required this.question,required this.isLargeScreen});
 
   @override
-  State<ListItem> createState() => _ListItemState();
+  State<ListItem> createState() =>
+      _ListItemState();
 }
 
 class _ListItemState extends State<ListItem> {
@@ -33,7 +35,6 @@ class _ListItemState extends State<ListItem> {
 
   @override
   Widget build(BuildContext context) {
-
       return Card(
         child: Container(
           height: 140,
@@ -41,15 +42,6 @@ class _ListItemState extends State<ListItem> {
               color: Colors.blueAccent, borderRadius: BorderRadius.circular(5)),
           child: ListTile(
             dense: true,
-            /*
-          subtitle: Text(
-            widget.question.category,
-            style: const TextStyle(fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-
-           */
             // title: Padding(padding: const EdgeInsets.all(16.0), child: question),
             title: Center(
                 child: Row(

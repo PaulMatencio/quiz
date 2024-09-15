@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:taskf9/functions/functions.dart';
 import 'package:taskf9/presentation/list/listItemHorizontal.dart';
@@ -22,9 +23,9 @@ class ListQuestionsScreen extends StatelessWidget {
           backgroundColor: Colors.amber,
         ),
         body: BuildListView(
-          questions: questions,
-          isLargeScreen: isHorizontal,
-          isLargeDevice: isLargeDevice
+            questions: questions,
+            isLargeScreen: isHorizontal,
+            isLargeDevice: isLargeDevice
         ));
   }
 }
@@ -33,7 +34,7 @@ class BuildListView extends StatelessWidget {
   const BuildListView(
       {super.key, required this.questions,
         required this.isLargeScreen,
-      required this.isLargeDevice});
+        required this.isLargeDevice});
 
   final List<Question> questions;
   final bool isLargeScreen;
@@ -48,37 +49,6 @@ class BuildListView extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-
-          /*
-    const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Use the ', style: TextStyle(fontSize: 20)),
-          Icon(
-            Icons.help,
-            size: 26,
-          ),
-          Text(' to get some hints', style: TextStyle(fontSize: 20))
-        ],
-      ),
-    ),
-    const SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Use the ', style: TextStyle(fontSize: 20)),
-            Icon(
-              Icons.get_app,
-              size: 26,
-            ),
-            Text(' to get the response', style: TextStyle(fontSize: 20))
-          ],
-        )),
-
-     */
           ListView.separated(
               shrinkWrap: true,
               itemCount: questions.length,
@@ -90,7 +60,6 @@ class BuildListView extends StatelessWidget {
                 return ListItem(
                   question: question,
                   isLargeScreen: isLargeScreen,
-
                   //index: index,
                 );
               }),
@@ -102,5 +71,3 @@ class BuildListView extends StatelessWidget {
     }
   }
 }
-
-
