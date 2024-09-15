@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:taskf9/main.dart';
 import 'package:taskf9/presentation/add/addQuestionScreen.dart';
 import 'package:taskf9/presentation/home/myHomeScreen.dart';
+import '../models/destinations.dart';
 import '../models/questions.dart';
 import 'list/listQuestionsScreen.dart';
 
@@ -18,35 +19,18 @@ class RootBottomNavigationBar extends StatefulWidget {
 
 class _RootBottomNavigationBarState extends State<RootBottomNavigationBar> {
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    const Icon homeIcon = Icon(Icons.home_filled, size: 26);
-    const Icon listIcon = Icon(Icons.question_answer, size: 26);
-    const Icon addIcon = Icon(Icons.add_card, size: 26);
-
-    const homeLabel = 'Home';
-    const listLabel = 'List questions';
-    const addLabel = 'Add question';
-
-    //   navigation bar  for  mobile
-    const List<BottomNavigationBarItem> items = [
-      BottomNavigationBarItem(icon: homeIcon, label: homeLabel),
-      BottomNavigationBarItem(icon: listIcon, label: listLabel),
-      BottomNavigationBarItem(icon: addIcon, label: addLabel),
-    ];
-
-    //  navigation bar for tablet
-    const List<NavigationRailDestination> tabletItems = [
-      NavigationRailDestination(icon: homeIcon, label: Text(homeLabel)),
-      NavigationRailDestination(icon: listIcon, label: Text(listLabel)),
-      NavigationRailDestination(icon: addIcon, label: Text(addLabel)),
+    List<Destination> destinations =[
+      Destination(icon: const Icon(Icons.home_filled,size:26), label: 'home'),
+      Destination(icon: const Icon(Icons.question_answer,size:26),label: 'List Question'),
+      Destination(icon: const Icon(Icons.add_card,size:26), label: 'Add question')
     ];
 
     // Route
     List<Widget> getIndexedStackChildren({required List<Question> questions})
     {
-
-
       return [
         MyHomeScreen(isLargeDevice: MyApp.isLargeDevice),
         ListQuestionsScreen(questions: questions,isLargeDevice: MyApp.isLargeDevice),
@@ -72,7 +56,9 @@ class _RootBottomNavigationBarState extends State<RootBottomNavigationBar> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: BottomNavigationBar(
-              items: items,
+              items: destinations.map(
+                      (Destination  destination) => BottomNavigationBarItem(icon: destination.icon,label:destination.label)
+              ).toList(),
               currentIndex: currentIndex,
               onTap: navBarNavigate,
               elevation: 10,
@@ -104,7 +90,8 @@ class _RootBottomNavigationBarState extends State<RootBottomNavigationBar> {
 
                 // minExtendedWidth: 70,
                 // extended: true,
-                destinations: tabletItems,
+                destinations: destinations.map((Destination destination )=> NavigationRailDestination(icon: destination.icon, label: Text(destination.label))
+                ).toList(),
                 selectedIndex: currentIndex,
                 onDestinationSelected: navBarNavigate,
                 labelType: NavigationRailLabelType.selected,

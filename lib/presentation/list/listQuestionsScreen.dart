@@ -12,7 +12,6 @@ class ListQuestionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List<Question> questions = createQuestionsList();
     final size = MediaQuery.of(context).size;
     final isHorizontal = isLargeScreen(size.width);
 

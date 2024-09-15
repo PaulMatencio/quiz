@@ -86,22 +86,6 @@ class _ListItemState extends State<ListItem> {
                         )),
                   ],
                 )),
-           /*
-            leading: Checkbox(
-              side: const BorderSide(
-                color: Colors.black,
-                width: 3.0,
-              ),
-              // shape: const Rect(),
-              checkColor: Colors.red,
-              activeColor: Colors.yellow,
-              value: _isSelected,
-              onChanged: (value) {
-                setState(() {
-                  _isSelected = value ?? false;
-                });
-              },
-              */
             ),
           ),
       );

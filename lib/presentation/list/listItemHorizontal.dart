@@ -15,7 +15,6 @@ class ListItemHorizontal extends StatefulWidget {
 }
 
 class _ListItemHorizontalState extends State<ListItemHorizontal> {
-
   String state = '';
   setIndex() {
     setState(() {
